@@ -8,7 +8,6 @@
 
 #pragma once
 #include "FileSystem.h"
-#define MAX_FILE_SIZE 1024
 
 FileSystem* readingFile(const char *path);
 

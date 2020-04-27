@@ -10,6 +10,16 @@
 #include <stdlib.h>
 #include "readingFile.h"
 
+long int fileSize( FILE *fp )
+ {
+   long int savePos, sizeOfFile;
+   savePos = ftell( fp );
+   fseek( fp, 0L, SEEK_END );
+   sizeOfFile = ftell( fp );
+   fseek( fp, savePos, SEEK_SET );
+   return( sizeOfFile );
+ }
+
 FileSystem* readingFile(const char *path) {
     FileSystem* data = (FileSystem*)malloc(sizeof(FileSystem));
     FILE* image = fopen(path, "r");
@@ -24,7 +34,7 @@ FileSystem* readingFile(const char *path) {
     
     int rows = data->superblock.FATsize / 8; //Количество строк в FAT
     
-    int numOfBlocks = (MAX_FILE_SIZE - (sizeof(data->superblock) + data->superblock.FATsize + data->superblock.rootSize))/data->superblock.sizeOFBlock; //Расчет количества блоков данных в файловой системе
+    int numOfBlocks = (fileSize(image) - (sizeof(data->superblock) + data->superblock.FATsize + data->superblock.rootSize))/data->superblock.sizeOFBlock; //Расчет количества блоков данных в файловой системе
     //ЧислоБлоков = (РазмерФайла - (РазмерСуперблока + РазмерFAT + РазмерRoot))/РазмерОдногоБлока (Байт)
     data->root = (File*)malloc(data->superblock.rootSize); //Выделение памяти под корневой каталог
     
