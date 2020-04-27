@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32EB69EA24572BB500D1E5C3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB69E924572BB500D1E5C3 /* main.c */; };
+		32EB69F824574D6B00D1E5C3 /* readingFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB69F724574D6B00D1E5C3 /* readingFile.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		32EB69F124572C2200D1E5C3 /* File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
 		32EB69F224572F8000D1E5C3 /* FileSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
 		32EB69F324572FBC00D1E5C3 /* Superblock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Superblock.h; sourceTree = "<group>"; };
+		32EB69F624574D5B00D1E5C3 /* readingFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = readingFile.h; sourceTree = "<group>"; };
+		32EB69F724574D6B00D1E5C3 /* readingFile.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = readingFile.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 		32EB69E824572BB500D1E5C3 /* fileAliases */ = {
 			isa = PBXGroup;
 			children = (
+				32EB69F524574D1400D1E5C3 /* Reading file */,
 				32EB69F024572BFB00D1E5C3 /* Types */,
 				32EB69E924572BB500D1E5C3 /* main.c */,
 			);
@@ -74,6 +78,15 @@
 				32EB69F324572FBC00D1E5C3 /* Superblock.h */,
 			);
 			name = Types;
+			sourceTree = "<group>";
+		};
+		32EB69F524574D1400D1E5C3 /* Reading file */ = {
+			isa = PBXGroup;
+			children = (
+				32EB69F624574D5B00D1E5C3 /* readingFile.h */,
+				32EB69F724574D6B00D1E5C3 /* readingFile.c */,
+			);
+			name = "Reading file";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EB69F824574D6B00D1E5C3 /* readingFile.c in Sources */,
 				32EB69EA24572BB500D1E5C3 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
