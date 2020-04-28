@@ -27,10 +27,10 @@ FileSystem* readingFile(const char *path) {
         printf("Проблема с открытием входного файла\n");
         exit(1);
     }
-    fread(data->superblock.sizeOFBlock, sizeof(unsigned), 1, image);
-    fread(data->superblock.FATsize, sizeof(unsigned), 1, image);
-    fread(data->superblock.rootSize, sizeof(unsigned), 1, image);
-    fread(data->superblock.cypherShift, sizeof(unsigned), 1, image);
+    fread(data->superblock.sizeOFBlock, sizeof(data->superblock.sizeOFBlock), 1, image);
+    fread(data->superblock.FATsize, sizeof(data->superblock.FATsize), 1, image);
+    fread(data->superblock.rootSize, sizeof(data->superblock.rootSize), 1, image);
+    fread(data->superblock.cypherShift, sizeof(data->superblock.cypherShift), 1, image);
     
     int rows = data->superblock.FATsize / 8; //Количество строк в FAT
     
@@ -55,11 +55,11 @@ FileSystem* readingFile(const char *path) {
     
     //Чтение корневого каталога
     for (int i = 0; i < data->superblock.rootSize / sizeof(File); ++i) {
-        fread(data->root[i].nameOfFile, 1, 12, image);
-        fread(data->root[i].numberOfFirstFileBlock, 4, 1, image);
-        fread(data->root[i].attributes, 4, 1, image);
-        fread(data->root[i].dateTime, 4, 1, image);
-        fread(data->root[i].size, 4, 1, image);
+        fread(data->root[i].nameOfFile, sizeof(data->root[i].nameOfFile[i]), sizeof(data->root[i].nameOfFile), image);
+        fread(data->root[i].numberOfFirstFileBlock, sizeof(data->root[i].numberOfFirstFileBlock), 1, image);
+        fread(data->root[i].attributes, sizeof(data->root[i].attributes), 1, image);
+        fread(data->root[i].dateTime, sizeof(data->root[i].dateTime), 1, image);
+        fread(data->root[i].size, sizeof(data->root[i].size), 1, image);
     }
     
     //Чтение блоков данных

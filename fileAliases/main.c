@@ -15,7 +15,5 @@ int main(int argc, const char * argv[]) {
     FileSystem* system = readingFile("path");
     printSuperblockInfo(system);
     printRootInfo(system);
-    
-    
     return 0;
 }
