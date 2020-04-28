@@ -12,6 +12,7 @@
 #define EOC 0xFF
 #define BROKEN 0x0FE
 
-void printFAT(FileSystem* system);
-void printSuperblockInfo (FileSystem* system);
-void printRootInfo(FileSystem* system);
+void printFAT(FileSystem* system); //Displays a content of FAT
+void printSuperblockInfo (FileSystem* system); //Displays an information from supeblock
+void printRootInfo(FileSystem* system); //Displays a content of Root
+void printTextFile(FileSystem* system, int numberOfFirstFileBlock); //Display selected .txt file

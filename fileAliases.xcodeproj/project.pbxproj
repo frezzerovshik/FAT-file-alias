@@ -12,6 +12,8 @@
 		32EB6A042457836600D1E5C3 /* printFAT.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A032457836600D1E5C3 /* printFAT.c */; };
 		32EB6A09245786E500D1E5C3 /* printRootInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A05245786E400D1E5C3 /* printRootInfo.c */; };
 		32EB6A0A245786E500D1E5C3 /* printSuperblockInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A08245786E500D1E5C3 /* printSuperblockInfo.c */; };
+		32EB6A0E2458A80700D1E5C3 /* printTextFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A0D2458A80700D1E5C3 /* printTextFile.c */; };
+		32EB6A122458AC0500D1E5C3 /* List.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A112458AC0500D1E5C3 /* List.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +40,10 @@
 		32EB6A05245786E400D1E5C3 /* printRootInfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = printRootInfo.c; sourceTree = "<group>"; };
 		32EB6A08245786E500D1E5C3 /* printSuperblockInfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = printSuperblockInfo.c; sourceTree = "<group>"; };
 		32EB6A0B2457870C00D1E5C3 /* print.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = print.h; sourceTree = "<group>"; };
+		32EB6A0C24589FE000D1E5C3 /* Tasks.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Tasks.rtf; sourceTree = "<group>"; };
+		32EB6A0D2458A80700D1E5C3 /* printTextFile.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = printTextFile.c; sourceTree = "<group>"; };
+		32EB6A102458AC0500D1E5C3 /* List.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		32EB6A112458AC0500D1E5C3 /* List.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = List.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +76,12 @@
 		32EB69E824572BB500D1E5C3 /* fileAliases */ = {
 			isa = PBXGroup;
 			children = (
+				32EB6A0F2458ABF200D1E5C3 /* List */,
 				32EB6A012457834600D1E5C3 /* Print */,
 				32EB69F524574D1400D1E5C3 /* Reading file */,
 				32EB69F024572BFB00D1E5C3 /* Types */,
 				32EB69E924572BB500D1E5C3 /* main.c */,
+				32EB6A0C24589FE000D1E5C3 /* Tasks.rtf */,
 			);
 			path = fileAliases;
 			sourceTree = "<group>";
@@ -104,8 +112,18 @@
 				32EB6A08245786E500D1E5C3 /* printSuperblockInfo.c */,
 				32EB6A032457836600D1E5C3 /* printFAT.c */,
 				32EB6A0B2457870C00D1E5C3 /* print.h */,
+				32EB6A0D2458A80700D1E5C3 /* printTextFile.c */,
 			);
 			name = Print;
+			sourceTree = "<group>";
+		};
+		32EB6A0F2458ABF200D1E5C3 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				32EB6A102458AC0500D1E5C3 /* List.h */,
+				32EB6A112458AC0500D1E5C3 /* List.c */,
+			);
+			name = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +183,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EB6A0E2458A80700D1E5C3 /* printTextFile.c in Sources */,
+				32EB6A122458AC0500D1E5C3 /* List.c in Sources */,
 				32EB6A042457836600D1E5C3 /* printFAT.c in Sources */,
 				32EB6A09245786E500D1E5C3 /* printRootInfo.c in Sources */,
 				32EB69F824574D6B00D1E5C3 /* readingFile.c in Sources */,

@@ -10,8 +10,7 @@
 #include <stdlib.h>
 #include "readingFile.h"
 
-long int fileSize( FILE *fp )
- {
+long int fileSize( FILE *fp ) {
    long int savePos, sizeOfFile;
    savePos = ftell( fp );
    fseek( fp, 0L, SEEK_END );
