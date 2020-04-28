@@ -14,17 +14,13 @@
 #define _true 1
 
 void printTextFile(FileSystem* system, int numberOfFirstFileBlock) {
-    Node* head = initList();
-    head->data = system->data[system->FAT[numberOfFirstFileBlock][0]];
-    int i = system->FAT[numberOfFirstFileBlock][1];
+    int i = numberOfFirstFileBlock;
     while (_true) {
-        appendList(head, system->data[system->FAT[i][0]]);
+        printf("%s", system->data[system->FAT[i][0]]);
         if (system->FAT[i][1] != EOC)
             i = system->FAT[i][1];
         else
             break;
     }
-    printList(head);
-    freeList(head);
 }
 
