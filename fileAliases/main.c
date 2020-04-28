@@ -11,6 +11,8 @@
 #include "readingFile.h"
 #include "print.h"
 
+//FAT image reading tool
+
 int main(int argc, const char * argv[]) {
     FileSystem* system = readingFile("path");
     printSuperblockInfo(system);
