@@ -14,6 +14,8 @@
 		32EB6A0A245786E500D1E5C3 /* printSuperblockInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A08245786E500D1E5C3 /* printSuperblockInfo.c */; };
 		32EB6A0E2458A80700D1E5C3 /* printTextFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A0D2458A80700D1E5C3 /* printTextFile.c */; };
 		32EB6A122458AC0500D1E5C3 /* List.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A112458AC0500D1E5C3 /* List.c */; };
+		32EB6A142458B92D00D1E5C3 /* printFilesList.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A132458B92D00D1E5C3 /* printFilesList.c */; };
+		32EB6A172458BC2900D1E5C3 /* printFileInfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A162458BC2900D1E5C3 /* printFileInfo.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +46,8 @@
 		32EB6A0D2458A80700D1E5C3 /* printTextFile.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = printTextFile.c; sourceTree = "<group>"; };
 		32EB6A102458AC0500D1E5C3 /* List.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		32EB6A112458AC0500D1E5C3 /* List.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = List.c; sourceTree = "<group>"; };
+		32EB6A132458B92D00D1E5C3 /* printFilesList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = printFilesList.c; sourceTree = "<group>"; };
+		32EB6A162458BC2900D1E5C3 /* printFileInfo.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = printFileInfo.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				32EB6A032457836600D1E5C3 /* printFAT.c */,
 				32EB6A0B2457870C00D1E5C3 /* print.h */,
 				32EB6A0D2458A80700D1E5C3 /* printTextFile.c */,
+				32EB6A132458B92D00D1E5C3 /* printFilesList.c */,
+				32EB6A162458BC2900D1E5C3 /* printFileInfo.c */,
 			);
 			name = Print;
 			sourceTree = "<group>";
@@ -188,7 +194,9 @@
 				32EB6A042457836600D1E5C3 /* printFAT.c in Sources */,
 				32EB6A09245786E500D1E5C3 /* printRootInfo.c in Sources */,
 				32EB69F824574D6B00D1E5C3 /* readingFile.c in Sources */,
+				32EB6A142458B92D00D1E5C3 /* printFilesList.c in Sources */,
 				32EB69EA24572BB500D1E5C3 /* main.c in Sources */,
+				32EB6A172458BC2900D1E5C3 /* printFileInfo.c in Sources */,
 				32EB6A0A245786E500D1E5C3 /* printSuperblockInfo.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
