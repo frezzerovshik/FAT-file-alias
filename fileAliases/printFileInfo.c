@@ -64,7 +64,7 @@ void printFileInfo(FileSystem* system, int fileId) {
             }
             
             printf("Название файла: %s\nДата создания: %d.%d.%d\nВремя создания: %d:%d:d\nНомер первого блока: %d\nАтрибуты: %d\nРазмер: %u\n",
-                   system->root[i].nameOfFile, date.day, date.mounth, MINIMAL_YEAR_ALLOWED + date.year, time.hours, time.minutes, time.seconds, fileId,system->root[i].attributes, system->root[i].size);
+                   system->root[i].nameOfFile, date.day, date.mounth, MINIMAL_YEAR_ALLOWED + date.year, time.hours, time.minutes, time.seconds * 2, fileId,system->root[i].attributes, system->root[i].size);
             return;
         }
     }
