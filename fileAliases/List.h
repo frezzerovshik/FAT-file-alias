@@ -7,13 +7,21 @@
 //
 
 #pragma once
+#include "File.h"
 
-typedef struct Node {
-    char *data; //Необходимо выделять память равную размеру блока
-    struct Node* next;
-} Node;
+typedef struct NodeList {
+    struct Node {
+        File data;
+        struct NodeList* headOfChildsList;
+    }* data;
+    struct NodeList* next;
+} NodeList;
 
-Node* initList(void); //Init the head of list
-void appendList(Node* head, char* data);
-void printList(Node* head);
-void freeList(Node* head);
+typedef struct Node Node;
+
+NodeList* initList(void); //Init the head of list
+void appendList(NodeList* head, Node* data);
+void printList(NodeList* head);
+void freeList(NodeList* head);
+
+Node getValueAtIndex (NodeList* head, unsigned index);

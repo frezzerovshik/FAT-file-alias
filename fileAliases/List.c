@@ -10,36 +10,51 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-Node* initList(void) {
-    Node* head = (Node*)malloc(sizeof(Node));
+NodeList* initList(void) {
+    NodeList* head = (NodeList*)malloc(sizeof(NodeList));
     head->data = NULL;
     head->next = NULL;
     return head;
 }
 
-void appendList(Node* head, char* data) {
-    Node* tail = head;
+void appendList(NodeList* head, Node* data) {
+    NodeList* tail = head;
     while (tail->next != NULL)
         tail = tail->next;
-    Node* newNode = (Node*)malloc(sizeof(Node));
+    NodeList* newNode = (NodeList*)malloc(sizeof(NodeList));
     newNode->data = data;
     newNode->next = NULL;
     tail->next = newNode;
 }
 
-void printList(Node* head) {
-    Node* i = head;
+void printList(NodeList* head) {
+    NodeList* i = head;
     while (i != NULL) {
-        printf("%s" , i->data);
+        //printf("%s" , i->data);
         i = i->next;
     }
 }
 
-void freeList(Node* head) {
-    Node* i = head;
+void freeList(NodeList* head) {
+    NodeList* i = head;
     while (i != NULL) {
-        Node* temp = i->next;
+        NodeList* temp = i->next;
         free(i);
         i = temp;
     }
+}
+
+Node getValueAtIndex (NodeList* head, unsigned index) {
+    int i = 0;
+    NodeList* temp = head;
+    while (temp != NULL) {
+        if (i != index) {
+            temp = temp->next;
+            i++;
+        }
+        else {
+            return *(temp->data);
+        }
+    }
+    exit(1);
 }
