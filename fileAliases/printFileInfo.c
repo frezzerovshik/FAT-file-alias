@@ -45,7 +45,7 @@ void printFileInfo(FileSystem* system, int fileId) {
     Date date;
     Time time;
     leftByte = rightByte = 0;
-    for (int i = 0; i < system->superblock.rootSize / sizeof(File); ++i) {
+    for (int i = 0; i < system->superblock.rootSize; ++i) {
         if (system->root[i].numberOfFirstFileBlock == fileId) {
             //Извлечение даты и времени
             leftByte = system->root[i].dateTime & GET_LEFT_BYTE;
@@ -63,7 +63,7 @@ void printFileInfo(FileSystem* system, int fileId) {
                 return;
             }
             
-            printf("Название файла: %s\nДата создания: %d.%d.%d\nВремя создания: %d:%d:d\nНомер первого блока: %d\nАтрибуты: %d\nРазмер: %u\n",
+            printf("Название файла: %s\nДата создания: %d.%d.%d\nВремя создания: %d:%d:d\nНомер первого блока: %d\nАтрибуты: %c\nРазмер: %u\n",
                    system->root[i].nameOfFile, date.day, date.mounth, MINIMAL_YEAR_ALLOWED + date.year, time.hours, time.minutes, time.seconds * 2, fileId,system->root[i].attributes, system->root[i].size);
             return;
         }

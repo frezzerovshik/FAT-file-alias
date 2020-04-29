@@ -35,7 +35,7 @@ FileSystem* readingFile(const char *path) {
     
     int numOfBlocks = (fileSize(image) - (sizeof(data->superblock) + data->superblock.FATsize + data->superblock.rootSize))/data->superblock.sizeOFBlock; //Расчет количества блоков данных в файловой системе
     //ЧислоБлоков = (РазмерФайла - (РазмерСуперблока + РазмерFAT + РазмерRoot))/РазмерОдногоБлока (Байт)
-    data->root = (File*)malloc(data->superblock.rootSize); //Выделение памяти под корневой каталог
+    data->root = (File*)malloc(data->superblock.rootSize * sizeof(File)); //Выделение памяти под корневой каталог
     
     //Выделение памяти под FAT
     data->FAT = (int**)malloc(rows * sizeof(int*));
@@ -53,7 +53,7 @@ FileSystem* readingFile(const char *path) {
     }
     
     //Чтение корневого каталога
-    for (int i = 0; i < data->superblock.rootSize / sizeof(File); ++i) {
+    for (int i = 0; i < data->superblock.rootSize; ++i) {
         fread(data->root[i].nameOfFile, sizeof(data->root[i].nameOfFile[i]), sizeof(data->root[i].nameOfFile), image);
         fread(data->root[i].numberOfFirstFileBlock, sizeof(data->root[i].numberOfFirstFileBlock), 1, image);
         fread(data->root[i].attributes, sizeof(data->root[i].attributes), 1, image);

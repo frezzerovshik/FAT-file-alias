@@ -80,6 +80,7 @@
 		32EB69E824572BB500D1E5C3 /* fileAliases */ = {
 			isa = PBXGroup;
 			children = (
+				32EB6A182459103100D1E5C3 /* Personal task */,
 				32EB6A0F2458ABF200D1E5C3 /* List */,
 				32EB6A012457834600D1E5C3 /* Print */,
 				32EB69F524574D1400D1E5C3 /* Reading file */,
@@ -130,6 +131,13 @@
 				32EB6A112458AC0500D1E5C3 /* List.c */,
 			);
 			name = List;
+			sourceTree = "<group>";
+		};
+		32EB6A182459103100D1E5C3 /* Personal task */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Personal task";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

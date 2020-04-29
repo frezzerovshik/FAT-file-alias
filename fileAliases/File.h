@@ -10,7 +10,7 @@
 typedef struct File {
     char nameOfFile[12];
     unsigned numberOfFirstFileBlock;
-    int attributes;
+    char attributes;
     int dateTime;
     unsigned size;
 } File;
