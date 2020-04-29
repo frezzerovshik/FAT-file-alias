@@ -18,3 +18,5 @@ void printRootInfo(FileSystem* system); //Displays a content of Root
 void printTextFile(FileSystem* system, int numberOfFirstFileBlock); //Display selected .txt file
 void printFilesList(FileSystem* system);
 void printFileInfo(FileSystem* system, int fileId);
+void printFileTree(FileSystem* system);
+void printCatalog(File dir, FileSystem* system, File* directories, File* files, int countFiles, int countDirectories);
