@@ -21,7 +21,7 @@ long int fileSize( FILE *fp ) {
 
 FileSystem* readingFile(const char *path) {
     FileSystem* data = (FileSystem*)malloc(sizeof(FileSystem));
-    FILE* image = fopen(path, "r");
+    FILE* image = fopen(path, "rb");
     if (image == NULL) {
         printf("Проблема с открытием входного файла\n");
         exit(1);

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		321F872B245A1CE2007878BA /* printFileTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 321F872A245A1CE2007878BA /* printFileTree.c */; };
 		321F872E245ADEB1007878BA /* createAlias.c in Sources */ = {isa = PBXBuildFile; fileRef = 321F872D245ADEB1007878BA /* createAlias.c */; };
+		321F8732245AF503007878BA /* memoryDealloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 321F8731245AF503007878BA /* memoryDealloc.c */; };
 		32EB69EA24572BB500D1E5C3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB69E924572BB500D1E5C3 /* main.c */; };
 		32EB69F824574D6B00D1E5C3 /* readingFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB69F724574D6B00D1E5C3 /* readingFile.c */; };
 		32EB6A042457836600D1E5C3 /* printFAT.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A032457836600D1E5C3 /* printFAT.c */; };
@@ -35,6 +36,8 @@
 		321F872A245A1CE2007878BA /* printFileTree.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = printFileTree.c; sourceTree = "<group>"; };
 		321F872C245ADEB1007878BA /* createAlias.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = createAlias.h; sourceTree = "<group>"; };
 		321F872D245ADEB1007878BA /* createAlias.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = createAlias.c; sourceTree = "<group>"; };
+		321F8730245AF503007878BA /* memoryDealloc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memoryDealloc.h; sourceTree = "<group>"; };
+		321F8731245AF503007878BA /* memoryDealloc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = memoryDealloc.c; sourceTree = "<group>"; };
 		32EB69E624572BB500D1E5C3 /* fileAliases */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fileAliases; sourceTree = BUILT_PRODUCTS_DIR; };
 		32EB69E924572BB500D1E5C3 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		32EB69F124572C2200D1E5C3 /* File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
@@ -63,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		321F872F245AF4DF007878BA /* Memory */ = {
+			isa = PBXGroup;
+			children = (
+				321F8730245AF503007878BA /* memoryDealloc.h */,
+				321F8731245AF503007878BA /* memoryDealloc.c */,
+			);
+			name = Memory;
+			sourceTree = "<group>";
+		};
 		32EB69DD24572BB500D1E5C3 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +94,7 @@
 		32EB69E824572BB500D1E5C3 /* fileAliases */ = {
 			isa = PBXGroup;
 			children = (
+				321F872F245AF4DF007878BA /* Memory */,
 				32EB6A182459103100D1E5C3 /* Personal task */,
 				32EB6A012457834600D1E5C3 /* Print */,
 				32EB69F524574D1400D1E5C3 /* Reading file */,
@@ -200,6 +213,7 @@
 				32EB6A142458B92D00D1E5C3 /* printFilesList.c in Sources */,
 				32EB69EA24572BB500D1E5C3 /* main.c in Sources */,
 				32EB6A172458BC2900D1E5C3 /* printFileInfo.c in Sources */,
+				321F8732245AF503007878BA /* memoryDealloc.c in Sources */,
 				321F872B245A1CE2007878BA /* printFileTree.c in Sources */,
 				32EB6A0A245786E500D1E5C3 /* printSuperblockInfo.c in Sources */,
 			);
