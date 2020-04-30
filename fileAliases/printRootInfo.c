@@ -19,7 +19,8 @@
 void printRootInfo(FileSystem* system) {
     for (int i = 0; i < system->superblock.rootSize; ++i) {
         if ((system->root[i].attributes & READ_ONLY) == READ_ONLY) {
-            printf("Файл: %s (только для чтения)", system->root[i].nameOfFile);
+            
+            printf("Файл: %s (только для чтения)\n", system->root[i].nameOfFile);
         }
         else {
             if ((system->root[i].attributes & HIDDEN) == HIDDEN) {
@@ -28,19 +29,19 @@ void printRootInfo(FileSystem* system) {
             }
             else {
                 if ((system->root[i].attributes & SYSTEM) == SYSTEM) {
-                    printf("Файл: %s (системный)", system->root[i].nameOfFile);
+                    printf("Файл: %s (системный)\n", system->root[i].nameOfFile);
                 }
                 else {
                     if ((system->root[i].attributes & MARK) == MARK) {
-                       printf("Файл: %s (метка тома)", system->root[i].nameOfFile);
+                       printf("Файл: %s (метка тома)\n", system->root[i].nameOfFile);
                     }
                     else {
                         if ((system->root[i].attributes & SUBDIRECTORY) == SUBDIRECTORY) {
-                            printf("Подкаталог: %s", system->root[i].nameOfFile);
+                            printf("Подкаталог: %s\n", system->root[i].nameOfFile);
                         }
                         else {
                             if ((system->root[i].attributes & ARCHIVE) == ARCHIVE) {
-                                printf("Файл: %s (архивный)", system->root[i].nameOfFile);
+                                printf("Файл: %s (архивный)\n", system->root[i].nameOfFile);
                             }
                         }
                     }

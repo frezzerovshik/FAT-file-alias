@@ -68,7 +68,7 @@ void printFileTree(FileSystem* system) {
     int iFiles, iDir;
     iFiles = iDir = 0;
     for (int i = 0; i < system->superblock.rootSize; ++i) {
-        if ((system->root[i].attributes & SUBDIRECTORY) == SUBDIRECTORY)
+        if (system->root[i].attributes == SUBDIRECTORY	)
             countDirectories++;
         else
             countFiles++;
@@ -82,11 +82,19 @@ void printFileTree(FileSystem* system) {
         }
         else {
             files[iFiles] = system->root[i];
+            iFiles++;
         }
     }
-    for (int i = 0; i < countDirectories ; ++i) {
-        if (haveSubdir(directories[i], system, directories, countDirectories) != 0)
-            printCatalog(directories[i], system, directories, files, countFiles, countDirectories);
+    if (countDirectories == 0) {
+        for (int i = 0; i < countFiles; ++i) {
+            printf("Имя файла: %s Расположение Root\n" , files[i].nameOfFile);
+        }
+    }
+    else {
+        for (int i = 0; i < countDirectories ; ++i) {
+            if (haveSubdir(directories[i], system, directories, countDirectories) != 0)
+                printCatalog(directories[i], system, directories, files, countFiles, countDirectories);
+        }
     }
     free(files);
     free(directories);

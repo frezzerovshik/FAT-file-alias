@@ -8,15 +8,7 @@
 
 #include "memoryDealloc.h"
 #include <stdlib.h>
-
-long int fileSize( FILE *fp ) {
-  long int savePos, sizeOfFile;
-  savePos = ftell( fp );
-  fseek( fp, 0L, SEEK_END );
-  sizeOfFile = ftell( fp );
-  fseek( fp, savePos, SEEK_SET );
-  return( sizeOfFile );
-}
+#include "readingFile.h"
 
 void memory_dealloc(FileSystem* system, FILE* image) {
     free(system->root);

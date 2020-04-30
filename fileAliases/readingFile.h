@@ -10,4 +10,4 @@
 #include "FileSystem.h"
 
 FileSystem* readingFile(const char *path);
-
+long int fileSize( FILE *fp );

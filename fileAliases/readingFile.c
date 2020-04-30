@@ -26,14 +26,14 @@ FileSystem* readingFile(const char *path) {
         printf("Проблема с открытием входного файла\n");
         exit(1);
     }
-    fread(data->superblock.sizeOFBlock, sizeof(data->superblock.sizeOFBlock), 1, image);
-    fread(data->superblock.FATsize, sizeof(data->superblock.FATsize), 1, image);
-    fread(data->superblock.rootSize, sizeof(data->superblock.rootSize), 1, image);
-    fread(data->superblock.cypherShift, sizeof(data->superblock.cypherShift), 1, image);
+    fread(&data->superblock.sizeOFBlock, sizeof(data->superblock.sizeOFBlock), 1, image);
+    fread(&data->superblock.FATsize, sizeof(data->superblock.FATsize), 1, image);
+    fread(&data->superblock.rootSize, sizeof(data->superblock.rootSize), 1, image);
+    fread(&data->superblock.cypherShift, sizeof(data->superblock.cypherShift), 1, image);
     
     int rows = data->superblock.FATsize / 8; //Количество строк в FAT
     
-    int numOfBlocks = (fileSize(image) - (sizeof(data->superblock) + data->superblock.FATsize + data->superblock.rootSize))/data->superblock.sizeOFBlock; //Расчет количества блоков данных в файловой системе
+    int numOfBlocks = (fileSize(image) - (16 + data->superblock.FATsize + (data->superblock.rootSize * 25)))/data->superblock.sizeOFBlock; //Расчет количества блоков данных в файловой системе
     //ЧислоБлоков = (РазмерФайла - (РазмерСуперблока + РазмерFAT + РазмерRoot))/РазмерОдногоБлока (Байт)
     data->root = (File*)malloc(data->superblock.rootSize * sizeof(File)); //Выделение памяти под корневой каталог
     
@@ -48,22 +48,25 @@ FileSystem* readingFile(const char *path) {
         data->data[i] = (char*)malloc(data->superblock.sizeOFBlock);
     
     //Чтение FAT
-    for (int i = 0; i < numOfBlocks; ++i) {
-            fread(data->FAT[i], 4, 2, image);
+    for (int i = 0; i < rows; ++i) {
+            fread(&data->FAT[i][0], 4, 1, image);
+            fread(&data->FAT[i][1], 4, 1, image);
     }
     
     //Чтение корневого каталога
     for (int i = 0; i < data->superblock.rootSize; ++i) {
-        fread(data->root[i].nameOfFile, sizeof(data->root[i].nameOfFile[i]), sizeof(data->root[i].nameOfFile), image);
-        fread(data->root[i].numberOfFirstFileBlock, sizeof(data->root[i].numberOfFirstFileBlock), 1, image);
-        fread(data->root[i].attributes, sizeof(data->root[i].attributes), 1, image);
-        fread(data->root[i].dateTime, sizeof(data->root[i].dateTime), 1, image);
-        fread(data->root[i].size, sizeof(data->root[i].size), 1, image);
+        fread(&data->root[i].nameOfFile, 12, 1, image);
+        fread(&data->root[i].numberOfFirstFileBlock, 4, 1, image);
+        fread(&data->root[i].attributes, 1, 1, image);
+        fread(&data->root[i].dateTime, 4, 1, image);
+        fread(&data->root[i].size, 4, 1, image);
     }
     
     //Чтение блоков данных
     for (int i =0; i < numOfBlocks; ++i) {
-            fread(data->data[i], 1, data->superblock.sizeOFBlock, image);
+        for (int j = 0; j < data->superblock.sizeOFBlock; ++j) {
+            fread(&data->data[i][j], 1, 1, image);
+        }
     }
     return data;
 }

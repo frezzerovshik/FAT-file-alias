@@ -16,7 +16,7 @@ void printFAT(FileSystem* system) {
             printf("Состояние: блок свободен\n");
         }
         else {
-            if (system->FAT[i][1] == system->FAT[i+1][0]) {
+            if (system->FAT[i][1] != EOC && system->FAT[i][1] != BROKEN) {
                 printf("Состояние: блок занят файлом и не является последним блоком файла\n");
             }
             else {

@@ -26,6 +26,7 @@ void createAlias(FileSystem* system, int fileID) {
             if (buffer_root[i].numberOfFirstFileBlock == fileID) {
                 index_of_file = i;
                 printf("Вы собираетесь создать синоним файлу %s\nПожалуйста,введите синоним (не более 12 символов)\n" , buffer_root[i].nameOfFile);
+                getchar();
                 fgets(alias, 13, stdin);
             }
         }
