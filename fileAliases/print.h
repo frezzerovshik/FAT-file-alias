@@ -19,4 +19,5 @@ void printTextFile(FileSystem* system, int numberOfFirstFileBlock); //Display se
 void printFilesList(FileSystem* system);
 void printFileInfo(FileSystem* system, int fileId);
 void printFileTree(FileSystem* system);
-void printCatalog(File dir, FileSystem* system, File* directories, File* files, int countFiles, int countDirectories);
+void printCatalog(File dir, FileSystem* system, File* directories, File* files, int *countFiles, int *countDirectories);
+int* getNum();

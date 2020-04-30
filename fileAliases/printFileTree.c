@@ -12,6 +12,11 @@
 #define SUBDIRECTORY 0x2
 #define _true 1
 
+int *num;
+
+int* getNum() {
+    return num;
+}
 int haveSubdir (File dir, FileSystem* system, File* directories, int countDirectories) {
     int numberInFAT = 0;
     for (int i = 0 ; i < system->superblock.FATsize / 8; i++) {
@@ -32,7 +37,12 @@ int haveSubdir (File dir, FileSystem* system, File* directories, int countDirect
     return 0;
 }
 
-void printCatalog(File dir, FileSystem* system, File* directories, File* files, int countFiles, int countDirectories) {
+void printCatalog(File dir, FileSystem* system, File* directories, File* files, int *countFiles, int *countDirectories) {
+    if (num == NULL) {
+        num = (int*)malloc(*countFiles * 4);
+    }
+    for (int i = 0; i < *countFiles; ++i)
+        num[i] = files[i].numberOfFirstFileBlock;
     int numberInFAT = 0;
     for (int i = 0 ; i < system->superblock.FATsize / 8; i++) {
         if (system->FAT[i][0] == dir.numberOfFirstFileBlock) {
@@ -41,16 +51,17 @@ void printCatalog(File dir, FileSystem* system, File* directories, File* files, 
         }
     }
     for (int i = numberInFAT; i < system->superblock.FATsize / 8; ++i) {
-        for (int j = 0; j < countFiles; ++j) {
+        for (int j = 0; j < *countFiles; ++j) {
             if (files[j].numberOfFirstFileBlock == system->FAT[i][0]) {
-                printf("Файл: %s\n", files[j].nameOfFile);
+                printf("Файл: %s\tРасположение: %s\n", files[j].nameOfFile, dir.nameOfFile);
+                num[j] = -1;
             }
             if (system->FAT[i][1] == EOC) {
                 return;
             }
         }
-        for (int j = 0; j < countDirectories; ++j) {
-            if (directories[j].numberOfFirstFileBlock == system->FAT[i][0]){
+        for (int j = 0; j < *countDirectories; ++j) {
+            if (directories[j].numberOfFirstFileBlock == system->FAT[i][0] && directories[j].numberOfFirstFileBlock != dir.numberOfFirstFileBlock){
                 printCatalog(directories[j], system, directories, files, countFiles, countDirectories);
             }
             if (system->FAT[i][1] == EOC) {
@@ -87,15 +98,26 @@ void printFileTree(FileSystem* system) {
     }
     if (countDirectories == 0) {
         for (int i = 0; i < countFiles; ++i) {
-            printf("Имя файла: %s Расположение Root\n" , files[i].nameOfFile);
+            if(files[i].nameOfFile[strlen(files[i].nameOfFile)-1] == '\n')
+                files[i].nameOfFile[strlen(files[i].nameOfFile)-1] = '\0';
+            printf("Имя файла: %s\tРасположение Root\n" , files[i].nameOfFile);
         }
     }
     else {
+        for (int i = 0; i < countDirectories; ++i) {
+            printf("Подкаталог: %s\n", directories[i].nameOfFile);
+        }
         for (int i = 0; i < countDirectories ; ++i) {
-            if (haveSubdir(directories[i], system, directories, countDirectories) != 0)
-                printCatalog(directories[i], system, directories, files, countFiles, countDirectories);
+            printCatalog(directories[i], system, directories, files, &countFiles, &countDirectories);
+        }
+        for (int i = 0; i < countFiles; ++i) {
+            if (num[i] != -1) {
+                for (int k = 0; k < countFiles; k++) {
+                    if(files[k].numberOfFirstFileBlock == num[i]) {
+                        printf("Файл: %s\t Расположение Root\n", files[k].nameOfFile);
+                    }
+                }
+            }
         }
     }
-    free(files);
-    free(directories);
 }
