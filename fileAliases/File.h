@@ -8,7 +8,7 @@
 #pragma once
 
 typedef struct File {
-    char nameOfFile[12];
+    char nameOfFile[13];
     unsigned numberOfFirstFileBlock;
     char attributes;
     int dateTime;

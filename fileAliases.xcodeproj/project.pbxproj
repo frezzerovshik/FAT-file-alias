@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		321F872B245A1CE2007878BA /* printFileTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 321F872A245A1CE2007878BA /* printFileTree.c */; };
+		321F872E245ADEB1007878BA /* createAlias.c in Sources */ = {isa = PBXBuildFile; fileRef = 321F872D245ADEB1007878BA /* createAlias.c */; };
 		32EB69EA24572BB500D1E5C3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB69E924572BB500D1E5C3 /* main.c */; };
 		32EB69F824574D6B00D1E5C3 /* readingFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB69F724574D6B00D1E5C3 /* readingFile.c */; };
 		32EB6A042457836600D1E5C3 /* printFAT.c in Sources */ = {isa = PBXBuildFile; fileRef = 32EB6A032457836600D1E5C3 /* printFAT.c */; };
@@ -32,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		321F872A245A1CE2007878BA /* printFileTree.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = printFileTree.c; sourceTree = "<group>"; };
+		321F872C245ADEB1007878BA /* createAlias.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = createAlias.h; sourceTree = "<group>"; };
+		321F872D245ADEB1007878BA /* createAlias.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = createAlias.c; sourceTree = "<group>"; };
 		32EB69E624572BB500D1E5C3 /* fileAliases */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fileAliases; sourceTree = BUILT_PRODUCTS_DIR; };
 		32EB69E924572BB500D1E5C3 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		32EB69F124572C2200D1E5C3 /* File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 		32EB6A182459103100D1E5C3 /* Personal task */ = {
 			isa = PBXGroup;
 			children = (
+				321F872C245ADEB1007878BA /* createAlias.h */,
+				321F872D245ADEB1007878BA /* createAlias.c */,
 			);
 			name = "Personal task";
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				32EB6A042457836600D1E5C3 /* printFAT.c in Sources */,
 				32EB6A09245786E500D1E5C3 /* printRootInfo.c in Sources */,
 				32EB69F824574D6B00D1E5C3 /* readingFile.c in Sources */,
+				321F872E245ADEB1007878BA /* createAlias.c in Sources */,
 				32EB6A142458B92D00D1E5C3 /* printFilesList.c in Sources */,
 				32EB69EA24572BB500D1E5C3 /* main.c in Sources */,
 				32EB6A172458BC2900D1E5C3 /* printFileInfo.c in Sources */,
